@@ -2,6 +2,28 @@
 #include "first_package/AddTwoInts.h"
 #include "first_package/Speak.h"
 #include <cstdlib>
+#include <thread>
+
+int execute_speak(int id, const std::string &msg, int repeat)
+{
+  ROS_INFO("execute_speak starts for %d", id);
+  int retVal=0;
+  ros::NodeHandle n;
+  ros::ServiceClient clientSpeak = n.serviceClient<first_package::Speak>("speak");
+  first_package::Speak spk;
+  spk.request.msg = msg;
+  spk.request.repeat = repeat;
+  if (clientSpeak.call(spk))
+  {
+    ROS_INFO("speak result of %d is: %d", id, spk.response.num);
+  }
+  else
+  {
+    ROS_ERROR("Failed to call service speak");
+    retVal = 1;
+  }
+  return retVal;
+}
 
 int main(int argc, char **argv)
 {
@@ -27,20 +49,11 @@ int main(int argc, char **argv)
     return 1;
   }
 
-  ros::ServiceClient clientSpeak = n.serviceClient<first_package::Speak>("speak");
-  first_package::Speak spk;
-  spk.request.msg = "hello";
-  spk.request.repeat = 4;
-  if (clientSpeak.call(spk))
-  {
-    ROS_INFO("Sum: %ld", (long int)spk.response.num);
-  }
-  else
-  {
-    ROS_ERROR("Failed to call service speak");
-    return 1;
-  }
+  std::thread th1([](){execute_speak(1, "hello", 4);});
+  std::thread th2([](){execute_speak(2, "world", 5);});
 
+  th1.join();
+  th2.join();
 
   return 0;
 }
