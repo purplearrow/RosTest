@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.8.3)
 project(first_package)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
-# add_compile_options(-std=c++11)
+add_compile_options(-std=c++11)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
@@ -57,6 +57,7 @@ add_message_files(
 add_service_files(
   FILES
   AddTwoInts.srv
+  Speak.srv
 )
 
 ## Generate actions in the 'action' folder
@@ -156,7 +157,7 @@ add_executable(listener src/listener.cpp)
 target_link_libraries(listener ${catkin_LIBRARIES})
 add_dependencies(listener ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
-add_executable(add_two_ints_server src/add_two_ints_server.cpp)
+add_executable(add_two_ints_server src/add_two_ints_server.cpp src/DishWasher.cpp)
 target_link_libraries(add_two_ints_server ${catkin_LIBRARIES})
 add_dependencies(add_two_ints_server ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 

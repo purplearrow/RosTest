@@ -1,5 +1,6 @@
 #include "ros/ros.h"
 #include "first_package/AddTwoInts.h"
+#include "first_package/Speak.h"
 #include <cstdlib>
 
 int main(int argc, char **argv)
@@ -25,6 +26,21 @@ int main(int argc, char **argv)
     ROS_ERROR("Failed to call service add_two_ints");
     return 1;
   }
+
+  ros::ServiceClient clientSpeak = n.serviceClient<first_package::Speak>("speak");
+  first_package::Speak spk;
+  spk.request.msg = "hello";
+  spk.request.repeat = 4;
+  if (clientSpeak.call(spk))
+  {
+    ROS_INFO("Sum: %ld", (long int)spk.response.num);
+  }
+  else
+  {
+    ROS_ERROR("Failed to call service speak");
+    return 1;
+  }
+
 
   return 0;
 }

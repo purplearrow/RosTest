@@ -1,4 +1,5 @@
 #include "ros/ros.h"
+#include "DishWasher.h"
 #include "first_package/AddTwoInts.h"
 
 bool add(first_package::AddTwoInts::Request  &req,
@@ -17,6 +18,10 @@ int main(int argc, char **argv)
 
   ros::ServiceServer service = n.advertiseService("add_two_ints", add);
   ROS_INFO("Ready to add two ints.");
+
+  DishWasher washer;
+  washer.Start();
+  
   ros::spin();
 
   return 0;
