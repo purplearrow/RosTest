@@ -4,10 +4,10 @@
 #include <ros/callback_queue.h>
 #include <string>
 
-class DishWasher
+class Victim
 {
 public:
-  DishWasher();
+  Victim();
   void Start();
   void Stop();
   int Speak(const std::string &msg, int repeat);

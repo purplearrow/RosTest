@@ -1,15 +1,15 @@
-#include "DishWasher.h"
+#include "Victim.h"
 #include "first_package/Speak.h"
 #include <thread>
 
-DishWasher::DishWasher()
+Victim::Victim()
   : node_(), callbackQueue_(true), asyncSpinner_(NUM_THREADS, &callbackQueue_)
 {
-  ROS_INFO("DishWasher constructor, namespace = %s", node_.getNamespace().c_str());
+  ROS_INFO("Victim constructor, namespace = %s", node_.getNamespace().c_str());
   node_.setCallbackQueue(&callbackQueue_);
   asyncSpinner_.start();
 }
-void DishWasher::Start()
+void Victim::Start()
 {
   service_ = node_.advertiseService<first_package::Speak::Request, first_package::Speak::Response>
     ("speak", 
@@ -19,11 +19,11 @@ void DishWasher::Start()
         }
     );
 }
-void DishWasher::Stop()
+void Victim::Stop()
 {
   service_.shutdown();
 }
-int DishWasher::Speak(const std::string &msg, int repeat)
+int Victim::Speak(const std::string &msg, int repeat)
 {
   for(int i=0; i<repeat; ++i)
   {

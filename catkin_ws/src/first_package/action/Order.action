@@ -1,0 +1,10 @@
+# Define the goal
+int32 floor
+---
+# Define the result
+int32 floor
+int32 numThief
+---
+# Define a feedback message
+int32 currentFloor
+
