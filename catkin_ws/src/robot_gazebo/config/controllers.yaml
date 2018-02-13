@@ -1,0 +1,10 @@
+bb8_head_joint_controller:
+  type: position_controllers/JointPositionController
+  joint: head_joint
+bb8_rotation_joint_controller:
+  type: position_controllers/JointPositionController
+  joint: rotation_joint
+bb8_direction_joint_controller:
+  type: position_controllers/JointPositionController
+  joint: direction_joint
+

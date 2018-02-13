@@ -1,6 +1,8 @@
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="fetch" >
-  
-  <xacro:include filename="$(find bb_8_description)/robots/bb_8.urdf" />
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="bb_8" >
+
+  <xacro:include filename="$(find robot_description)/urdf/bb_8.urdf" />
+  <xacro:include filename="$(find robot_description)/urdf/bb_8.transmission.xacro" />
+  <xacro:include filename="$(find robot_description)/urdf/gazebo_plugin.xacro" />
 
   <!-- Base is modeled as a big tub sitting on floor, with two wheels -->
   <gazebo reference="base_link">
@@ -85,7 +87,7 @@
     <mu1>0.2</mu1>
     <mu2>0.2</mu2>
   </gazebo>
-
+  <!--
   <gazebo>
     <plugin name="bb_8_gazebo_plugin" filename="libgazebo_bb_8_controller.so">
       <alwaysOn>true</alwaysOn>
@@ -102,8 +104,10 @@
       <robotBaseFrame>base_link</robotBaseFrame>
     </plugin>
   </gazebo>
+  -->
 
   <!-- camera -->
+  <!--
   <gazebo reference="camera_link">
     <sensor type="camera" name="camera1">
       <update_rate>30.0</update_rate>
@@ -139,15 +143,17 @@
       </plugin>
     </sensor>
   </gazebo>
+  -->
 
   <!-- imu -->
+  <!--
   <gazebo>
     <plugin name="gazebo_ros_imu_controller" filename="libgazebo_ros_imu.so">
       <robotNamespace>/bb8/</robotNamespace>
       <topicName>imu/data</topicName>
       <serviceName>imu/service</serviceName>
       <bodyName>base_link</bodyName>
-      <!-- <frameId>base_link</frameId> -->
+      <frameId>base_link</frameId>
       <gaussianNoise>0</gaussianNoise>
       <rpyOffsets>0 0 0</rpyOffsets>
       <updateRate>50.0</updateRate>
@@ -155,6 +161,7 @@
       <gaussianNoise>0</gaussianNoise>
     </plugin>
   </gazebo>
+  -->
 
   <!-- gazebo reference="base_link">
     <sensor name="imu_sensor" type="imu">
@@ -185,8 +192,7 @@
         <gaussianNoise>0.0</gaussianNoise>
         <updateRate>10.0</updateRate>
       </plugin>
-    </sensor>  
+    </sensor>
   </gazebo-->
-
 
 </robot>
