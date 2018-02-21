@@ -7,4 +7,3 @@ bb8_rotation_joint_controller:
 bb8_direction_joint_controller:
   type: position_controllers/JointPositionController
   joint: direction_joint
-

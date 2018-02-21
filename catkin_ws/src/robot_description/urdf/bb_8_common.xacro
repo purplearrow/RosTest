@@ -1,9 +1,5 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="bb_8" >
 
-  <xacro:include filename="$(find robot_description)/urdf/bb_8.urdf" />
-  <xacro:include filename="$(find robot_description)/urdf/bb_8.transmission.xacro" />
-  <xacro:include filename="$(find robot_description)/urdf/gazebo_plugin.xacro" />
-
   <!-- Base is modeled as a big tub sitting on floor, with two wheels -->
   <gazebo reference="base_link">
     <kp>100000000.0</kp>

@@ -1,0 +1,12 @@
+bb8_head_joint_controller:
+  type: effort_controllers/JointPositionController
+  joint: head_joint
+  pid: {p: 100.0, i: 0.01, d: 10.0}
+bb8_rotation_joint_controller:
+  type: effort_controllers/JointPositionController
+  joint: rotation_joint
+  pid: {p: 100.0, i: 0.01, d: 10.0}
+bb8_direction_joint_controller:
+  type: effort_controllers/JointPositionController
+  joint: direction_joint
+  pid: {p: 100.0, i: 0.01, d: 10.0}

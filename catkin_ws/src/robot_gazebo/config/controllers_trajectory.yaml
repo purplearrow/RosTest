@@ -1,0 +1,21 @@
+bb8_head_joint_controller:
+  type: position_controllers/JointTrajectoryController
+  joints:
+     - head_joint
+  stop_trajectory_duration: 0.5
+  state_publish_rate:  25
+  action_monitor_rate: 10
+bb8_rotation_joint_controller:
+  type: position_controllers/JointTrajectoryController
+  joints:
+     - rotation_joint
+  stop_trajectory_duration: 0.5
+  state_publish_rate:  25
+  action_monitor_rate: 10
+bb8_direction_joint_controller:
+  type: position_controllers/JointTrajectoryController
+  joints:
+     - direction_joint
+  stop_trajectory_duration: 0.5
+  state_publish_rate:  25
+  action_monitor_rate: 10

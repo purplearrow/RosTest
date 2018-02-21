@@ -1,11 +1,10 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-
   <transmission name="rotation_joint_trans">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="rotation_joint">
-      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="$rotation_joint_motor">
       <mechanicalReduction>1</mechanicalReduction>
@@ -15,7 +14,7 @@
   <transmission name="head_joint_trans">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="head_joint">
-      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="$head_joint_motor">
       <mechanicalReduction>1</mechanicalReduction>
@@ -25,11 +24,10 @@
   <transmission name="direction_joint_trans">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="direction_joint">
-      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="$direction_joint_motor">
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
-
 </robot>

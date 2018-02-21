@@ -1,0 +1,8 @@
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="bb_8" >
+
+  <xacro:include filename="$(find robot_description)/urdf/bb_8.urdf" />
+  <xacro:include filename="$(find robot_description)/urdf/bb_8_transmission_position.xacro" />
+  <xacro:include filename="$(find robot_description)/urdf/gazebo_plugin.xacro" />
+  <xacro:include filename="$(find robot_description)/urdf/bb_8_common.xacro" />
+
+</robot>
