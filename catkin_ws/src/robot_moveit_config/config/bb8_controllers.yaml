@@ -1,0 +1,17 @@
+controller_manager_ns: /
+controller_list:
+  - name: bb8_head_joint_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    joints:
+      - head_joint
+  - name: bb8_rotation_joint_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    joints:
+      - rotation_joint
+  - name: bb8_direction_joint_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    joints:
+      - direction_joint

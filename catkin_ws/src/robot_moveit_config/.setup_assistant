@@ -1,0 +1,10 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: robot_description
+    relative_path: urdf/bb_8_gazebo_position.xacro
+  SRDF:
+    relative_path: config/bb_8.srdf
+  CONFIG:
+    author_name: purplearrow
+    author_email: purplearrowjhang@gmail.com
+    generated_timestamp: 1519258829

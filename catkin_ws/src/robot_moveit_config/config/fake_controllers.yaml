@@ -1,0 +1,4 @@
+controller_list:
+  - name: fake_direction_controller
+    joints:
+      - direction_joint
